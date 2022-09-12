@@ -24,11 +24,14 @@ public class Yeltsin_Add_Item {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.findElement(By.xpath("//span[.='КУПИТЬ БИЛЕТ']")).click();
-        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[.='Завтра 10:00']")));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+
+        driver.switchTo().frame(driver.findElement(By.id("frame_afishaWidgetContainer")));
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[.='Завтра 10:00']")));
         driver.findElement(By.xpath("//button[.='Завтра 10:00']")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[.='Полный в музей (взрослый) с 10:00 - 21:00']/parent::div/parent::div//button")));
         driver.findElement(By.xpath("//div[.='Полный в музей (взрослый) с 10:00 - 21:00']/parent::div/parent::div//button")).click();
+        driver.switchTo().parentFrame();
 
         Thread.sleep(5000);
         driver.close();

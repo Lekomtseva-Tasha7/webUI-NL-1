@@ -24,7 +24,12 @@ public class Yeltsin_Add_to_Favorites {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.findElement(By.xpath("//a[.='Интернет-магазин музейных сувениров ']")).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@data-product-id='18648']//descendant::button[contains(@class,'favorites')]")));
+        Thread.sleep(3000);
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[.='Принять']")));
+        driver.findElement(By.xpath("//button[.='Принять']")).click();
+        //driver.switchTo().activeElement().click();
+        Thread.sleep(3000);
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@data-product-id='18648']//descendant::button[contains(@class,'favorites')]")));
         driver.findElement(By.xpath("//article[@data-product-id='18648']//descendant::button[contains(@class,'favorites')]")).click();
         driver.findElement(By.xpath("//a[@href='/personal/favorites/']/parent::div//descendant::button")).click();
 
