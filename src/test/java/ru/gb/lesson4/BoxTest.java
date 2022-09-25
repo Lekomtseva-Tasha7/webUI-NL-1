@@ -37,6 +37,5 @@ public class BoxTest {
                 assertThat(box.getBallsCount()).isEqualTo(0);
             }
         }
-
     }
 }

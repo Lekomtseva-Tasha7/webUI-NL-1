@@ -47,7 +47,7 @@ public class FunctionsTest {
     }
 
     @ParameterizedTest // Параметризованный тест
-    @CsvSource({"123, false", "1234321, true"}) // Тест с тестовыми данными и ожидаемым результатом
+    @CsvSource({"123, false", "123321, true"})// Тест с тестовыми данными и ожидаемым результатом
     void isPalindromeTest3(String testWord, boolean expectedResult){
         Assertions.assertEquals(expectedResult, new Functions().isPalindrome(testWord));
     }

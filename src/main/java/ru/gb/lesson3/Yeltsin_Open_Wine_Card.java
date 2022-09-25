@@ -2,6 +2,7 @@ package ru.gb.lesson3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -32,8 +33,8 @@ public class Yeltsin_Open_Wine_Card {
         driver.findElement(By.xpath("//div[.='Контакты']")).click();
 
         Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[.='Винная карта (2021)']")));
-        driver.findElement(By.xpath("//div[.='Винная карта (2021)']")).click();
+        actions.scrollToElement(driver.findElement(By.xpath("//div[.='Винная карта (2021)']"))).perform();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//div[.='Винная карта (2021)']")));
 
         Thread.sleep(5000);
         driver.close();

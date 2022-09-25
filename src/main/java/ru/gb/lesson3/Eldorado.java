@@ -19,7 +19,7 @@ public class Eldorado {
         //firefoxOptions.addPreference("general.useragent.override","Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
 
         WebDriver driver = new FirefoxDriver(firefoxOptions);
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
 
         driver.get("https://www.eldorado.ru");
@@ -29,9 +29,9 @@ public class Eldorado {
         driver.findElement(By.xpath("//input[@name='search']")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li//a[.='Смартфоны']")));
         driver.findElement(By.xpath("//input[@name='search']")).sendKeys("смартфон");
-        driver.findElement(By.xpath("//a[.='Смартфоны' and @type='button']")).click();
-        //Thread.sleep(3000);
-        //driver.findElement(By.xpath("//button[.='Найти']"));
+        //driver.findElement(By.xpath("//a[.='Смартфоны' and @type='button']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//button[.='Найти']"));
 
         Thread.sleep(5000);
         driver.close();
