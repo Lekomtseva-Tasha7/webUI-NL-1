@@ -34,6 +34,7 @@ public class EldoradoTest extends BaseTest{
         driver.findElement(By.xpath("//input[@name='search']")).sendKeys("смартфон");
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-test-id='searchHints']//a[.='Смартфоны']")));
         driver.findElement(By.xpath("//button[.='Смотреть все результаты']")).click();
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[.='Смартфоны']")));
         Thread.sleep(2000);
         Assertions.assertTrue(driver.getCurrentUrl().contains("smartfony"));
     }
