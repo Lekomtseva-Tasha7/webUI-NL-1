@@ -1,5 +1,6 @@
 package ru.gb.lesson6.homework6;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,16 +24,19 @@ public class SuccessBlock extends BasePage {
     @FindBy(xpath = "//button//span[.='1 билет']")
     private WebElement ticket;
 
+    @Step("Проверка наличия товара на странице избранного")
     public void checkAddFavorites(){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(favoriteButtonXpathLocator)));
         Assertions.assertTrue((textDelete).isDisplayed());
     }
 
+    @Step("Проверка отображения каунтера")
     public void checkCounter(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(favoriteCounter));
         Assertions.assertEquals("1", favoriteCounter.getText());
     }
 
+    @Step("Проверка наличия билета в корзине")
     public void checkBuyTicket(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(ticket));
         Assertions.assertTrue((ticket).isDisplayed());

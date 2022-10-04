@@ -1,5 +1,6 @@
 package ru.gb.lesson6.homework6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,7 @@ public class CatalogSouvenirsPage extends BasePage{
     @FindBy(xpath = favoriteCounterXpathLocator)
     private WebElement favoriteCounter;
 
+    @Step("Добавление в избранное и переход на страницу избранного")
     public SuccessBlock addFavorite() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(acceptButton));
         acceptButton.click();
@@ -32,6 +34,7 @@ public class CatalogSouvenirsPage extends BasePage{
         return new SuccessBlock(driver);
     }
 
+    @Step("Добавление в избранное")
     public SuccessBlock addCounter(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(acceptButton));
         acceptButton.click();
