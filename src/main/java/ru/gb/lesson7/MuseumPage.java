@@ -1,12 +1,13 @@
-package ru.gb.lesson6.homework6;
+package ru.gb.lesson7;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class MuseumPage extends BasePage {
 
+public class MuseumPage extends BasePage{
     @FindBy(xpath = "//a[.='Интернет-магазин музейных сувениров ']")
     private WebElement onlineStoreButton;
 
@@ -26,11 +27,13 @@ public class MuseumPage extends BasePage {
         super(driver);
     }
 
+    @Step("Клик на ссылке интернет-магазина сувениров")
     public CatalogSouvenirsPage clickOnlineStoreButton(){
         onlineStoreButton.click();
         return new CatalogSouvenirsPage(driver);
     }
 
+    @Step("Положить билет в музей в корзину")
     public SuccessBlock clickBuyTicketButton (){
         buyTicketButton.click();
         webDriverWait.until(ExpectedConditions.visibilityOf(afishaWidget));

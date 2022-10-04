@@ -1,5 +1,6 @@
-package ru.gb.lesson6.homework6;
+package ru.gb.lesson7;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SuccessBlock extends BasePage {
+public class SuccessBlock extends BasePage{
 
     private final static String favoriteButtonXpathLocator = "//span[.='Удалить все']";
     @FindBy(xpath = favoriteButtonXpathLocator)
@@ -24,16 +25,19 @@ public class SuccessBlock extends BasePage {
         super(driver);
     }
 
+    @Step("Проверка наличия товара на странице избранного")
     public void checkAddFavorites(){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(favoriteButtonXpathLocator)));
         Assertions.assertTrue((textDelete).isDisplayed());
     }
 
+    @Step("Проверка отображения каунтера")
     public void checkCounter(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(favoriteCounter));
         Assertions.assertEquals("1", favoriteCounter.getText());
     }
 
+    @Step("Проверка наличия билета в корзине")
     public void checkBuyTicket(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(ticket));
         Assertions.assertTrue((ticket).isDisplayed());
